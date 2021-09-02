@@ -14,7 +14,8 @@ function moviesAPI(app){
     const {tags} = req.query;
     try {
         const movies = await moviesService.getMovies({ tags})
-
+        throw new Error('Error getting movies');
+        
         res.status(200).json({
           data: movies,
           message:'movies listed'
@@ -30,6 +31,8 @@ function moviesAPI(app){
 
     try{
       const movies =  await moviesService.getMovie({movieId})
+     
+
 
       res.status(200).json({
         data:movies,
